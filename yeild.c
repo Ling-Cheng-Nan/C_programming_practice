@@ -9,7 +9,7 @@ int main(){
     double endOfAmount=0;
     double p, r;
     int n;
-
+    
     printf("Enter the original amount invested :\n");
     scanf("%lf", &p);
     printf("Enter the annual interest rate :\n");
