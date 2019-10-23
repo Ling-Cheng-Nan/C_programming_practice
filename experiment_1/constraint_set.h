@@ -1,7 +1,7 @@
 /* define number elements of array */
-#define SIZE10 10 
-#define SIZE20 20 
-#define SIZE100 100
+#define NODE_SIZE10   10 
+#define NODE_SIZE20   20 
+#define NODE_SIZE100 100
 
 /* given the min and max range of node number generated  */
 #define MIN_NODE 1
