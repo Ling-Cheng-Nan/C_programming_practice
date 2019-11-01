@@ -1,32 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 //struct declaration
-typedef struct date{
+typedef struct {
     int date;
-    int month;
+    char month[4]; //one position for \0 to end string
     int year;
 } Date;
 
+typedef struct {
+    char name[31];
+    int age;
+    char gender;
+    //char address[100];
+} Student;
+
 //function prototype
-void printDate(struct date d);
+void printDate(Date d);
 
 int main(void){
-    struct date dob, pete;
-    Date MerryChristmas;
-
+    Date dob;
+    Student stud1, stud2;
+    
     dob.date  = 15;
-    dob.month = 11;
+    strcpy(dob.month, "Nov");
     dob.year  = 2016;
-
-    scanf("%d %d %d", &pete.year, &pete.month, &pete.date);    
-    printf("Dob's birthday is %d/%d/%d.\n", dob.year, dob.month, dob.date);    
-    printf("Pete's birthday is %d/%d/%d.\n", pete.year, pete.month, pete.date);
-    printDate(pete);
-
     
-    scanf("%d %d %d", &MerryChristmas.year, &MerryChristmas.month, &MerryChristmas.date);
-    printDate(MerryChristmas);
+    printf("Dob's birthday is %s. %d, %d.\n", dob.month, dob.date, dob.year);    
+    printDate(dob);
     
+    FILE* in = fopen("input.txt", "r");
+    char temp[31];
+    Student pupil[100];
+    getString(in, temp);
+
+    for(int i = 0 ; strcmp(temp, "END" != 0) ; i++){
+        strcpy(pupil[i].name, temp);
+        fscanf(in, "%d", &pupil[i].age);
+        pupil[i].gender = readChar(in);
+        getString(in, temp);
+    }
 
 
 
@@ -36,7 +50,7 @@ int main(void){
     return 0;
 }
 
-void printDate(struct date d){
-    printf("%d/%d/%d\n", d.year, d.month, d.date);
+void printDate(Date d){
+    printf("%s. %d, %d\n", d.month, d.date, d.year);
 }
 
