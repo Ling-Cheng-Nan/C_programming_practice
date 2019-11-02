@@ -5,7 +5,6 @@
 #include "function.h"
 
 
-
 int main(void){
     srand(time(NULL)); //set random seed 
 

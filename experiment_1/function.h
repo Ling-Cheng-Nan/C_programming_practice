@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <time.h>
 #include "constraint_set.h"
 
@@ -24,8 +25,8 @@ void showArrayContent(int node[NODE_SIZE20][DIMEN_SIZE05]){
 //end of showArrayContent
 
 void conventionalSkyline(int node[NODE_SIZE20][DIMEN_SIZE05]){
+     
     
-
 }
 //end of conventionalSkyline
 
