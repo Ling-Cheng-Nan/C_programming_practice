@@ -25,7 +25,7 @@ void showArrayContent(int node[NODE_SIZE20][DIMEN_SIZE05]){
 //end of showArrayContent
 
 void conventionalSkyline(int node[NODE_SIZE20][DIMEN_SIZE05]){
-     
+	
     
 }
 //end of conventionalSkyline
