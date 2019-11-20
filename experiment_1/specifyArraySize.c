@@ -5,13 +5,17 @@
 #include "function.h"
 
 
+typedef struct points{
+	char name[10];
+    int value[5];
+} Point;
+
 int main(void){
     srand(time(NULL)); //set random seed 
 
     /* variables declation */
     int NODE=(rand()%(MAX_NODE-MIN_NODE))+MIN_NODE;
-    int DIMENSION=(rand()%(MAX_D-MIN_D))+MIN_D;
-    
+    int DIMENSION=(rand()%(MAX_D-MIN_D))+MIN_D;    
     int missing_dimension=(rand()%(DIMENSION-MIN_D))+MIN_D; //must less than DIMENSION
     int node[NODE_SIZE20][DIMEN_SIZE05]={0};
     
@@ -26,12 +30,14 @@ int main(void){
     //printf("after assign array value...\n");    
     showArrayContent(node);
     
-    
-    
-    
-    
+    Point p, q, r, s;
+	//strcpy(p.name);
+	p.name="Sam";
+	p.value={ };
+
     return 0;
 }
+
 
 	
 
