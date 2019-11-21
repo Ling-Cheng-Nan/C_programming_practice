@@ -1,17 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 20
 
 int main(void){
 	
-	char string1[]="first";	
-	char string2[SIZE+1];
+	char string1[20];	
+	char string2[]="string literal";
 	
-	scanf("%20s", string2);
+	printf("Enter a string: ");
+	scanf("%s", string1);
 	
-	printf(string1);
+	printf("string1 is: %s\nstring2 is: \%s\n"
+		   "string1 with spaces between characters is: ", string1, string2);
+	
+	for(int i=0 ; string1[i] != '\0' ; i++){
+		printf("%c ", string1[i]);
+	} /*end for loop*/
+	
 	printf("\n");
-	printf(string2);
+	
 
 	return 0;
 }
+
+
