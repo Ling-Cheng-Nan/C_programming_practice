@@ -48,8 +48,8 @@ int main(void){
 	strcpy(book2.title, "Operating System");
 	
 	//initialize server1 and server2
-	printf("server name : %s \nserver-id : %d \nadministrator is : %s\n", server1.name, server1.id, server1.admin);
-	printf("server name : %s \nserver-id : %d \nadministrator is : %s\n", server2.name, server2.id, server2.admin);
+	printf("server name : %s \nserver-id : %d\nadministrator is : %s\n", server1.name, server1.id, server1.admin);
+	printf("server name : %s \nserver-id : %d\nadministrator is : %s\n", server2.name, server2.id, server2.admin);
 	
 	printf("%s\n", book1.title);
 	printf("%s\n", book2.title);

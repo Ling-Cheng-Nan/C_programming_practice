@@ -4,20 +4,17 @@
 #include "constraint_set.h" //self define header files with double quotes
 #include "function.h"
 
-
-typedef struct points{
-	char name[10];
-    int value[5];
-} Point;
-
 int main(void){
     srand(time(NULL)); //set random seed 
-
+	
     /* variables declation */
     int NODE=(rand()%(MAX_NODE-MIN_NODE))+MIN_NODE;
-    int DIMENSION=(rand()%(MAX_D-MIN_D))+MIN_D;    
-    int missing_dimension=(rand()%(DIMENSION-MIN_D))+MIN_D; //must less than DIMENSION
-    int node[NODE_SIZE20][DIMEN_SIZE05]={0};
+    
+	int DIMENSION=(rand()%(MAX_D-MIN_D))+MIN_D;    
+    
+	int missing_dimension=(rand()%(DIMENSION-MIN_D))+MIN_D; //must less than DIMENSION
+    
+	int node[NODE_SIZE10][DIMEN_SIZE03]={0};
     
     printf("total number of node is : %d\n", NODE);
     printf("dimension each node is  : %6d\n", DIMENSION);
@@ -30,11 +27,7 @@ int main(void){
     //printf("after assign array value...\n");    
     showArrayContent(node);
     
-    Point p, q, r, s;
-	//strcpy(p.name);
-	p.name="Sam";
-	p.value={ };
-
+   	
     return 0;
 }
 

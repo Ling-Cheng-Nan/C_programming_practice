@@ -6,26 +6,28 @@
 
 
 //function implementation
-void assignArrayRandomValue(int node[NODE_SIZE20][DIMEN_SIZE05]){
-    for(int i = 0 ; i < NODE_SIZE20 ; i++){
-        for(int j = 0 ; j < DIMEN_SIZE05 ; j++){
+void assignArrayRandomValue(int node[NODE_SIZE10][DIMEN_SIZE03]){
+    for(int i = 0 ; i < NODE_SIZE10 ; i++){
+        for(int j = 0 ; j < DIMEN_SIZE03 ; j++){
             node[i][j] = (rand()%(MAX-MIN))+MIN;
         }
     }
 }
 //end of assignArrayRandomValue
 
-void showArrayContent(int node[NODE_SIZE20][DIMEN_SIZE05]){
-    for(int i = 0 ; i < NODE_SIZE20 ; i++){
-        for(int j = 0 ; j < DIMEN_SIZE05 ; j++){
-            (j == 4)? printf("%d \n", node[i][j]) : printf("%d ", node[i][j]);
+void showArrayContent(int node[NODE_SIZE10][DIMEN_SIZE03]){
+    for(int i = 0 ; i < NODE_SIZE10 ; i++){
+        for(int j = 0 ; j < DIMEN_SIZE03 ; j++){
+            (j == 2)? printf("%d \n", node[i][j]) : printf("%d ", node[i][j]);
         }
     }
 }
 //end of showArrayContent
 
-void conventionalSkyline(int node[NODE_SIZE20][DIMEN_SIZE05]){
-	
+void conventionalSkyline(int node[NODE_SIZE10][DIMEN_SIZE03]){
+	for(int i = 0 ; i < NODE_SIZE10 ; i++){
+		if(node)
+	}
     
 }
 //end of conventionalSkyline
