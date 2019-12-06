@@ -4,7 +4,7 @@
 #include <math.h>
 
 
-#define SIZE 50
+#define SIZE 21
 #define max 1000
 #define min 1
 
@@ -12,6 +12,8 @@ void assignArray(int[], int);
 void showArrayContent(int[], int);
 void bubbleSort(int[], int);
 void insertionSort(int[], int);
+void median(int[],int);
+//void mean(const int[]);
 
 int main(void){
 	
@@ -19,7 +21,8 @@ int main(void){
 	
 	//initialize array
 	int unsortedArray[SIZE];
-	
+	int   sortedArray[SIZE];
+
 	assignArray(unsortedArray, SIZE);	
 	
 	//before sortinog
@@ -34,11 +37,14 @@ int main(void){
 	
 	//bubbleSort(unsortedArray, SIZE);
 	insertionSort(unsortedArray , SIZE);
+
 	//after sorting
 	printf("\nafter sorting array.....\n");
 	showArrayContent(unsortedArray, SIZE);
 	
-	
+	median(unsortedArray, SIZE);
+	//mean(sortedArray);
+
 	
 	
 	
@@ -118,14 +124,18 @@ void insertionSort(int a[], int size){
 		else{
 			for(int j = 0 ; j < (i-1) ; j++){
 				if(a[i] <= a[j]){
+					
 					//swap two elements
 					temp = a[i];
 					a[i] = a[j];
 					a[j] = temp;
+				
 				}else continue;	
 			}
 		}
 	}
 }
 
-
+void median(int a[],int size){
+	((size%2) == 0)? printf("\nMedian = %lf \n", (double)(a[size/2+1]+a[size/2])/2):printf("\nMedian = %lf \n",(double)a[size/2]);
+}
