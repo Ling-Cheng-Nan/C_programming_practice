@@ -21,7 +21,7 @@ void printDate(Date d);
 
 int main(void){
     Date dob;
-    Student stud1, stud2;
+    //Student stud1, stud2;
     
     dob.date  = 15;
     strcpy(dob.month, "Nov");
@@ -29,18 +29,6 @@ int main(void){
     
     printf("Dob's birthday is %s. %d, %d.\n", dob.month, dob.date, dob.year);    
     printDate(dob);
-    
-    FILE* in = fopen("input.txt", "r");
-    char temp[31];
-    Student pupil[100];
-    getString(in, temp);
-
-    for(int i = 0 ; strcmp(temp, "END" != 0) ; i++){
-        strcpy(pupil[i].name, temp);
-        fscanf(in, "%d", &pupil[i].age);
-        pupil[i].gender = readChar(in);
-        getString(in, temp);
-    }
 
 
 
