@@ -10,8 +10,14 @@
 
 void assignArray(int[], int);
 void showArrayContent(int[], int);
+void swap(int*, int* ); //prototype of function swap (call-by-reference)
+
 void bubbleSort(int[], int);
+void bubbleSortRef(int[], int);
+
 void insertionSort(int[], int);
+void insertionSortRef(int[], int);
+
 void median(int[],int);
 //void mean(const int[]);
 
@@ -29,14 +35,21 @@ int main(void){
 	printf("\nbefore sorting array....\n");
 	showArrayContent(unsortedArray, SIZE);
 	
-	/* seveeral sorting functions below
-	 * 1. bubble sorting
-	 * 2. insertion sorting
-	 * 3. 
+	/* several sorting functions below
+	 * 
+	 * 1. bubble sorting with call-by-value
+	 * 2. bubble sorting call-by-reference
+	 * 
+	 * 3. insertion sort with call-by-value
+	 * 4. insertion sort with call-by-reference
+	 *  
 	 * */
 	
 	//bubbleSort(unsortedArray, SIZE);
-	insertionSort(unsortedArray , SIZE);
+	//bubbleSortRef(unsortedArray, SIZE);
+	//insertionSort(unsortedArray , SIZE);
+	//insertionSortRef(unsortedArray , SIZE);
+
 
 	//after sorting
 	printf("\nafter sorting array.....\n");
@@ -79,13 +92,20 @@ void showArrayContent(int a[],int size){
 }
 
 void swap(int* a, int* b){
+	int temp;
 	
+	//swap two address with reference
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
 void bubbleSort(int a[], int size){
 	int temp;
 	int passes = 0;
 	int comparisons = 0;
+
+	printf("\nbubble sort with call-by-value....\n");
 
 	for(int i = 0 ; i < size-1 ; i++){
 		
@@ -112,10 +132,38 @@ void bubbleSort(int a[], int size){
 
 }
 
+void bubbleSortRef(int a[], int size){
+	//void swap(int*, int* ); //prototype of function swap declare inside the caller functon bubbleSortRef
+	
+	int passes = 0;
+	int comparisons = 0;
+	
+	printf("\nbubble sort with call-by-reference....\n");
+
+	for(int i = 0 ; i < size-1 ; i++){
+		for(int j = (i+1) ; j < size ; j++){
+			if(a[i] >= a[j]){
+				//printf("a[i] = %d, a[j] = %d\n", a[i], a[j]);
+				swap(&a[i], &a[j]);
+				//printf("a[i] = %d, a[j] = %d\n", a[i], a[j]);
+			}
+			comparisons++;
+		}
+		passes++;
+	}
+	printf("\n\nthere are %d comparisons during bubbleSort.\n", comparisons);
+	printf("there are %d passes during bubbleSort.\n", passes);
+}
+
 void insertionSort(int a[], int size){
 	
 	int temp;
-	
+	int passes = 0;
+	int comparisons = 0;
+
+	printf("\ninsertion sort with call-by-value....\n");
+
+
 	for(int i = 0 ; i < size ; i++){
 		
 		if(i==0){ 
@@ -130,10 +178,47 @@ void insertionSort(int a[], int size){
 					a[i] = a[j];
 					a[j] = temp;
 				
-				}else continue;	
+				}
+				else continue;
+
+				comparisons++;	
 			}
 		}
+
+		passes++;
 	}
+
+	printf("\n\nthere are %d comparisons during bubbleSort.\n", comparisons);
+	printf("there are %d passes during bubbleSort.\n", passes);
+}
+
+void insertionSortRef(int a[], int size){
+	
+	int passes = 0;
+	int comparisons = 0;
+
+	printf("\ninsertion sort with call-by-reference....\n");
+
+	for(int i = 0 ; i < size ; i++){
+		if(i == 0){
+			continue;
+		}
+		else {
+				for(int j = 0 ; j < (i-1) ; j++){
+					if(a[i] <= a[j]){
+						swap(&a[i], &a[j]);
+					}
+					else continue;
+				
+				comparisons++;
+				}
+		}
+		
+		passes++;
+	}
+
+	printf("\n\nthere are %d comparisons during bubbleSort.\n", comparisons);
+	printf("there are %d passes during bubbleSort.\n", passes);
 }
 
 void median(int a[],int size){
