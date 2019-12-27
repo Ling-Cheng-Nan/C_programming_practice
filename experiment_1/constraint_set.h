@@ -18,3 +18,16 @@
 /* given array dimension range from 1~10 */
 #define MIN_D 1
 #define MAX_D 10
+
+
+
+
+/*define struct of point*/
+
+typedef struct Point {
+	
+	char[11] id;
+	int value[DIMEN_SIZE03];
+	int x, y, z;
+
+} point; 
