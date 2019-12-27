@@ -4,7 +4,7 @@
 #include <math.h>
 
 
-#define SIZE 21
+#define SIZE 22
 #define max 1000
 #define min 1
 
@@ -12,14 +12,16 @@ void assignArray(int[], int);
 void showArrayContent(int[], int);
 void swap(int*, int* ); //prototype of function swap (call-by-reference)
 
-void bubbleSort(int[], int);
-void bubbleSortRef(int[], int);
+//bubble-sort
+void bubbleSort(int[], int);    //call-by-value
+void bubbleSortRef(int[], int); //call-by-refence
 
-void insertionSort(int[], int);
-void insertionSortRef(int[], int);
+//insertion-sort
+void insertionSort(int[], int);    //call-by-value
+void insertionSortRef(int[], int); //call-by-refence
 
-void median(int[],int);
-//void mean(const int[]);
+void median(int[], int);
+double mean(const int[], int);
 
 int main(void){
 	
@@ -28,6 +30,7 @@ int main(void){
 	//initialize array
 	int unsortedArray[SIZE];
 	int   sortedArray[SIZE];
+	double mean_value = 0;
 
 	assignArray(unsortedArray, SIZE);	
 	
@@ -50,14 +53,15 @@ int main(void){
 	//insertionSort(unsortedArray , SIZE);
 	//insertionSortRef(unsortedArray , SIZE);
 
-
 	//after sorting
 	printf("\nafter sorting array.....\n");
 	showArrayContent(unsortedArray, SIZE);
 	
 	median(unsortedArray, SIZE);
-	//mean(sortedArray);
-
+	
+	//evaluate th mean of all the elements within specified array
+	mean_value = mean(unsortedArray, SIZE);
+	printf("Mean = %.2lf\n", mean_value);
 	
 	
 	
@@ -221,6 +225,22 @@ void insertionSortRef(int a[], int size){
 	printf("there are %d passes during bubbleSort.\n", passes);
 }
 
-void median(int a[],int size){
-	((size%2) == 0)? printf("\nMedian = %lf \n", (double)(a[size/2+1]+a[size/2])/2):printf("\nMedian = %lf \n",(double)a[size/2]);
+void median(int a[], int size){
+	if( (size % 2) == 0){
+		printf("\nMedian = %.2lf \n", (double)(a[size/2+1]+a[size/2])/2);
+	}
+	else {
+		printf("\nMedian = %.2lf \n", (double)a[size/2]);
+	}
+}
+
+double mean(const int a[], int size){
+	double mean = 0;
+	int total = 0;
+
+	for(int i = 0 ; i < size ; i++){
+		total += a[i];
+	}
+
+	return mean = (double)total/size;
 }
