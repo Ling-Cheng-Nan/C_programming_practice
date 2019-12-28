@@ -77,7 +77,7 @@ int main(void){
 	return 0;
 }
 
-void assignArray(int a[],int size){
+void assignArray(int a[], int size){
 	
 	//int max = 100;
 	//int min = 0;
@@ -87,7 +87,7 @@ void assignArray(int a[],int size){
 	}
 }
 
-void showArrayContent(int a[],int size){
+void showArrayContent(int a[], int size){
 	
 	for(int i = 0 ; i < size ; i++){
 		(( i%10) == 0 && (i!=0) )? printf("\n%d ", a[i]) : printf("%d ", a[i]);
