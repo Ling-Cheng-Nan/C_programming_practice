@@ -1,34 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
-struct Coordinate{
-   
-   /dimension/
-   double x;
-   double y;
-   double z;
-   
-};
 
-/*prototype declaration*/
+typedef struct{
+    char name[11];
+} Identity;
+
+typedef struct{
+    double x;
+    double y;
+} Coordinates;
+
+typedef struct{
+    Identity;
+    Coordinates;
+} Points;
 
 int main(void){
-    
-    /*variables declaration and initialization*/
-    int NumberOfNodes;
-    
-    Coordinate Coordinates[NumberOfNodes];
+	
+	// Points p;
+	// p->Identity = "Sam";
+	// p.Coordinates.x=1;
+	// p.Coordinates.y=2;
+	
+	// printf("point \"%s\" x = %d ; y = %d\n",p->Identity, p.Coordinates.x, p.Coordinates.y);
 
-    /*generate random number of nodes*/
-    
-    return 0;
-}
-
-/*function implmentation*/
-int generateRandomNodes(){
-
-}
-
-/*Skyline Algorithm*/
-void ConventoinalSkyline(Coordinate *Coordinates[]){
-    
+	return 0;
 }
