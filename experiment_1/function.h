@@ -15,6 +15,14 @@ void assignArrayRandomValue(int node[NODE_SIZE10][DIMEN_SIZE03]){
 }
 //end of assignArrayRandomValue
 
+void assignArrayRandomNull(int node[NODE_SIZE10][DIMEN_SIZE03]){
+    for(int i = 0 ; i < NODE_SIZE10 ; i++){
+        for(int j = 0; j < DIMEN_SIZE03 ; j++){
+            
+        }
+    }
+}
+
 void showArrayContent(int node[NODE_SIZE10][DIMEN_SIZE03]){
     for(int i = 0 ; i < NODE_SIZE10 ; i++){
         for(int j = 0 ; j < DIMEN_SIZE03 ; j++){
@@ -25,9 +33,9 @@ void showArrayContent(int node[NODE_SIZE10][DIMEN_SIZE03]){
 //end of showArrayContent
 
 void conventionalSkyline(int node[NODE_SIZE10][DIMEN_SIZE03]){
-	for(int i = 0 ; i < NODE_SIZE10 ; i++){
-		if(node)
-	}
+	// for(int i = 0 ; i < NODE_SIZE10 ; i++){
+	// 	if(node)
+	// }
     
 }
 //end of conventionalSkyline

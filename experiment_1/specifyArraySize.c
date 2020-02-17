@@ -20,14 +20,17 @@ int main(void){
     printf("dimension each node is  : %6d\n", DIMENSION);
     printf("missng dimension is     : %6d\n", missing_dimension);
 
-    /*printf("before assign array value...\n");
-    showArrayContent(node); */
+    printf("before assign array value...\n");
+    showArrayContent(node); 
     assignArrayRandomValue(node);
 
-    //printf("after assign array value...\n");    
+    printf("after assign array value...\n");    
     showArrayContent(node);
     
-   	
+    assignArrayRandomNull(node);
+    printf("after assign null value randomly ...\n");
+    showArrayContent(node);
+
     return 0;
 }
 
