@@ -24,11 +24,11 @@ int main(void){
     showArrayContent(node); 
     assignArrayRandomValue(node);
 
-    printf("after assign array value...\n");    
+    printf("\nafter assign array value...\n");    
     showArrayContent(node);
     
     assignArrayRandomNull(node);
-    printf("after assign null value randomly ...\n");
+    printf("\nafter assign null value randomly ...\n");
     showArrayContent(node);
 
     return 0;

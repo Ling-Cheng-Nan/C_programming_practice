@@ -17,7 +17,7 @@ void assignArrayRandomValue(int node[NODE_SIZE10][DIMEN_SIZE03]){
 
 void assignArrayRandomNull(int node[NODE_SIZE10][DIMEN_SIZE03]){
     for(int i = 0 ; i < NODE_SIZE10 ; i++){
-        
+        node[i][1] = 0;
     }
 }
 
