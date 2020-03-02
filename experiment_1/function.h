@@ -21,6 +21,7 @@ void assignArrayRandomNull(int node[NODE_SIZE10][DIMEN_SIZE03]){
     }
 }
 
+//print out the contents of Array
 void showArrayContent(int node[NODE_SIZE10][DIMEN_SIZE03]){
     for(int i = 0 ; i < NODE_SIZE10 ; i++){
         for(int j = 0 ; j < DIMEN_SIZE03 ; j++){
@@ -43,3 +44,28 @@ void k_dominant_Skyline(int node[NODE_SIZE20][DIMEN_SIZE05]){
 }
 //end of k_dominant_Skyline
 
+void evaluateMean(int node[NODE_SIZE10][DIMEN_SIZE03]){
+    
+    double Mean[DIMEN_SIZE03]={0,0,0};
+    double * pMean;
+
+    //accumulate each index of Mean by value of nodes, respectively
+    for(int i = 0 ; i < NODE_SIZE10 ; i++){
+        for(int j = 0 ; j < DIMEN_SIZE03 ; j++){
+            Mean[j] += node[i][j];
+        }
+    }
+    
+    //divide total number of nodes
+    for(int j = 0 ; j < DIMEN_SIZE03 ; j++){
+        //Mean[j] = Mean[j]/(double)NODE_SIZE10;
+        printf("Mean[%d]:%d\n", j, Mean[j]);
+    }
+
+    //divide total number of nodes
+    for(int j = 0 ; j < DIMEN_SIZE03 ; j++){
+        Mean[j] = Mean[j]/(double)NODE_SIZE10;
+        printf("Mean[%d]:%d\n", j, Mean[j]);
+    }
+
+}
