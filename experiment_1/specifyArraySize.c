@@ -29,10 +29,6 @@ int main(void){
     printf("\nafter assign null value randomly ...\n");
     showArrayContent(node);
 
-    evaluateMean(node);
-    // for(int i = 0 ; i < DIMEN_SIZE03 ; i++){
-    //     printf("Mean[%d]:%d\n", i, Mean+i);
-    // }
 
     return 0;
 }

@@ -54,6 +54,7 @@ int main(void){
 	printf("%s\n", book1.title);
 	printf("%s\n", book2.title);
 	printf("%s\n", stu1.name);
-	
+
+
 	return 0;
 }
