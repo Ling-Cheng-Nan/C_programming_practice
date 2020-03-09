@@ -2,4 +2,4 @@
 
 #ignore .tmp file
  
-./exe
+*.exe
