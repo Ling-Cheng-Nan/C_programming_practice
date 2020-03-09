@@ -16,5 +16,5 @@ int main(void){
 	printf("value of &pointer = %p\n", &pointer);
 	
 	return 0;
-}
+} 
 
