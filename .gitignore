@@ -1,5 +1,6 @@
 #file name : .gitignore
 
 #ignore .tmp file
- 
+
+a.out
 *.exe
