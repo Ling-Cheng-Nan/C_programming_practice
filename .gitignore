@@ -1,0 +1,5 @@
+#file name : .gitignore
+
+#ignore .tmp file
+ 
+./exe
