@@ -12,8 +12,7 @@ int main(void){
 	int DIMENSION=(rand()%(MAX_D-MIN_D))+MIN_D;    
 	int missing_dimension=(rand()%(DIMENSION-MIN_D))+MIN_D; //must less than DIMENSION
 	int node[NODE_SIZE10][DIMEN_SIZE03]={0};
-    double *Mean;//[DIMEN_SIZE03];
-
+    
     printf("total number of node is : %d\n", NODE);
     printf("dimension each node is  : %6d\n", DIMENSION);
     printf("missng dimension is     : %6d\n", missing_dimension);
