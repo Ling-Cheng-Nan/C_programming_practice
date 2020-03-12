@@ -5,7 +5,7 @@
 #include "function.h"
 #include <math.h>
 
-void evaluateMean(int [][3]);
+void evaluateStatistic(int n[][3]);
 
 
 int main(void){
@@ -32,13 +32,13 @@ int main(void){
     // printf("\nafter assign null value randomly ...\n");
     // showArrayContent(node);
     
-    evaluateMean(node);
+    evaluateStatistic(node);
 
     return 0;
 }
 
 
-void evaluateMean(int n[][3]){
+void evaluateStatistic(int n[][3]){
     
     double Mean[DIMEN_SIZE03]={0};
     double Variance[DIMEN_SIZE03]={0};
