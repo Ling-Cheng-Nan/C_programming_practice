@@ -44,8 +44,8 @@ void k_dominant_Skyline(int node[NODE_SIZE20][DIMEN_SIZE05]){
 }
 //end of k_dominant_Skyline
 
-void evaluateMean(int node[NODE_SIZE10][DIMEN_SIZE03]){
+// void evaluateMean(int node[NODE_SIZE10][DIMEN_SIZE03]){
     
     
 
-}
+// }

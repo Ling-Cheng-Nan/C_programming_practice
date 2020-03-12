@@ -19,7 +19,7 @@
 #define MIN_D 1
 #define MAX_D 10
 
-
+#define SQUARE 2
 
 
 /*define struct of point*/
