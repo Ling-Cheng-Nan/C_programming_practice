@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+void doubleValue(int *);
 
 int main(void){
 
 	int b = 2;
-	int *p = &b;
+	int* p = &b;
 	double a = 1.5;
 	double *aPtr = &a;
 
@@ -33,7 +34,16 @@ int main(void){
 	printf("Slices : %d\n", slices);
 	printf("Slices : %d\n", *pSlices);
 	
+	int x = 5;
+	int* pX = &x;
+	doubleValue(&x);
+	printf("x = %d\n", x);
+	doubleValue(pX);
+	printf("x = %d\n", *pX);
 	return 0;
-} 
+}
 
+void doubleValue(int* x){
+	(*x) = (*x) * 2;
 
+}
