@@ -1,3 +1,9 @@
+typedef struct name{
+    char first[21];
+    char middle[11];
+    char last[12];
+} Name;
+
 typedef struct date{
     int day;
     char month[4]; //one position for \0 to end string
@@ -6,8 +12,9 @@ typedef struct date{
 } Date;
 
 typedef struct student{
-    char name[31];
-    int age;
+    Name name;
+    Date dob;
     char gender;
+    int age;
 } Student;
 
