@@ -15,37 +15,31 @@ void assignArrayRandomValue(int node[NODE_SIZE10][DIMEN_SIZE03]){
 }
 //end of assignArrayRandomValue
 
-void assignArrayRandomNull(int node[NODE_SIZE10][DIMEN_SIZE03]){
-    for(int i = 0 ; i < NODE_SIZE10 ; i++){
-        node[i][1] = 0;
-    }
-}
-
 //print out the contents of Array
 void showArrayContent(int node[NODE_SIZE10][DIMEN_SIZE03]){
     for(int i = 0 ; i < NODE_SIZE10 ; i++){
         for(int j = 0 ; j < DIMEN_SIZE03 ; j++){
-            (j == 2)? printf("%d \n", node[i][j]) : printf("%d ", node[i][j]);
+            (j == 2)? printf("%2d \n", node[i][j]) : printf("%2d ", node[i][j]);
         }
     }
 }
 //end of showArrayContent
 
-void conventionalSkyline(int node[NODE_SIZE10][DIMEN_SIZE03]){
-	// for(int i = 0 ; i < NODE_SIZE10 ; i++){
-	// 	if(node)
-	// }
-    
+void copyArray(int node[][3], int copy[][3]){
+    for(int i = 0 ; i < NODE_SIZE10 ; i++){
+        for(int j = 0 ; j < DIMEN_SIZE03 ; j++){
+            copy[i][j] = node[i][j];
+        }
+    }
 }
-//end of conventionalSkyline
 
-void k_dominant_Skyline(int node[NODE_SIZE20][DIMEN_SIZE05]){
-
+void assignNull(int node[][3]){
+    srand(time(NULL)); //set random seed
+    
+    for(int i = 0 ; i < NODE_SIZE10 ; i++){
+        if((rand()%(2-0))==0) 
+            node[i][1] = -1;
+        else 
+            continue; 
+    }
 }
-//end of k_dominant_Skyline
-
-// void evaluateMean(int node[NODE_SIZE10][DIMEN_SIZE03]){
-    
-    
-
-// }

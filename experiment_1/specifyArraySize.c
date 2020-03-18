@@ -33,6 +33,11 @@ int main(void){
     // showArrayContent(node);
     
     evaluateStatistic(node);
+    int clone[10][3] = {0};
+    copyArray(node, clone);
+    assignNull(clone);
+    showArrayContent(clone);
+    evaluateStatistic(clone);
 
     return 0;
 }
@@ -43,20 +48,38 @@ void evaluateStatistic(int n[][3]){
     double Mean[DIMEN_SIZE03]={0};
     double Variance[DIMEN_SIZE03]={0};
     double standardDeviation[DIMEN_SIZE03]={0};
+    int countM = 0;
+    int countV = 0;
+    
 
     for(int i = 0 ; i < DIMEN_SIZE03 ; i++){
         for(int j = 0 ; j < NODE_SIZE10 ; j++){
-            Mean[i] += (double)n[j][i];
+            if(n[j][i] != -1){
+                countM++;
+                Mean[i] += (double)n[j][i];
+            }
+            else continue;
         }
-        Mean[i] /= NODE_SIZE10;
+        Mean[i] /= countM;
+
+        //printf("valid count of Mean = %d\n", countM);
+        countM = 0;
     }
 
     for(int i = 0 ; i < DIMEN_SIZE03 ; i++){
         for(int j = 0 ; j < NODE_SIZE10 ; j++){
-            Variance[i] += pow(((double)n[j][i]-Mean[i]), SQUARE);
+            if(n[j][i] != -1){
+                countV++;
+                Variance[i] += pow(((double)n[j][i]-Mean[i]), SQUARE);
+            }
+            else continue;
         }
-        Variance[i] /= NODE_SIZE10;
+
+        Variance[i] /= countV;
         standardDeviation[i] = sqrt(Variance[i]);
+
+        //printf("valid count of Variance = %d\n", countV);
+        countV = 0;
     }
 
     //show
