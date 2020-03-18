@@ -3,9 +3,9 @@
 #include <time.h>
 #include "constraint_set.h" //self define header files with double quotes
 #include "function.h"
-#include <math.h>
 
-void evaluateStatistic(int n[][3]);
+
+void possiblity(double p);
 
 
 int main(void){
@@ -15,85 +15,49 @@ int main(void){
     int NODE=(rand()%(MAX_NODE-MIN_NODE))+MIN_NODE;
 	int DIMENSION=(rand()%(MAX_D-MIN_D))+MIN_D;    
 	int missing_dimension=(rand()%(DIMENSION-MIN_D))+MIN_D; //must less than DIMENSION
-	int node[NODE_SIZE10][DIMEN_SIZE03]={0};
+	int node[NODE_SIZE1000][DIMEN_SIZE03]={0};
     
     printf("total number of node is : %d\n", NODE);
     printf("dimension each node is  : %6d\n", DIMENSION);
     printf("missng dimension is     : %6d\n", missing_dimension);
 
-    printf("before assign array value...\n");
-    showArrayContent(node); 
+    //printf("before assign array value...\n");
+    //showArrayContent(node); 
+    printf("\nafter assign array value...\n");
     assignArrayRandomValue(node);
-
-    printf("\nafter assign array value...\n");    
-    showArrayContent(node);
+    //showArrayContent(node);
     
-    // assignArrayRandomNull(node);
-    // printf("\nafter assign null value randomly ...\n");
-    // showArrayContent(node);
-    
-    evaluateStatistic(node);
-    int clone[10][3] = {0};
+    int clone[NODE_SIZE1000][DIMEN_SIZE03] = {0};
     copyArray(node, clone);
-    assignNull(clone);
-    showArrayContent(clone);
+    //assignNullAtFixedIndex(clone,2);
+    assignNullAtFixedIndexRandomRatio(clone, 2, 0.42);
+    //showArrayContent(clone);
+    printf("---Statistics of original array:---\n");
+    evaluateStatistic(node);
+    
+    printf("---Statistics of post-nullize array:---\n");
     evaluateStatistic(clone);
+
+    //possiblity(0.36);
 
     return 0;
 }
 
-
-void evaluateStatistic(int n[][3]){
+void possiblity(double p){
+    srand(time(NULL)); //set random seed
     
-    double Mean[DIMEN_SIZE03]={0};
-    double Variance[DIMEN_SIZE03]={0};
-    double standardDeviation[DIMEN_SIZE03]={0};
-    int countM = 0;
-    int countV = 0;
-    
+    int count = 0;
 
-    for(int i = 0 ; i < DIMEN_SIZE03 ; i++){
-        for(int j = 0 ; j < NODE_SIZE10 ; j++){
-            if(n[j][i] != -1){
-                countM++;
-                Mean[i] += (double)n[j][i];
+    if( p > 1 || p < 0) printf("Error!!\n");
+    else{
+            for(int i = 0 ; i < 1000 ; i++){
+                if((rand()%(100-1)+1 <= 100*p)) 
+                    count++;
+                    printf("count = %d\n",count);
             }
-            else continue;
-        }
-        Mean[i] /= countM;
-
-        //printf("valid count of Mean = %d\n", countM);
-        countM = 0;
     }
 
-    for(int i = 0 ; i < DIMEN_SIZE03 ; i++){
-        for(int j = 0 ; j < NODE_SIZE10 ; j++){
-            if(n[j][i] != -1){
-                countV++;
-                Variance[i] += pow(((double)n[j][i]-Mean[i]), SQUARE);
-            }
-            else continue;
-        }
-
-        Variance[i] /= countV;
-        standardDeviation[i] = sqrt(Variance[i]);
-
-        //printf("valid count of Variance = %d\n", countV);
-        countV = 0;
-    }
-
-    //show
-    printf("\n");
-    for(int i = 0 ; i < DIMEN_SIZE03 ; i++){
-        printf("Mean at dimension %d = %lf\n"
-               "Variance at dimension %d = %lf\n"
-               "Standard Deviation at dimension %d = %lf\n"
-               , i, Mean[i], i, Variance[i], i, standardDeviation[i]);
-        printf("\n");
-    }
-
-    
-
+    printf("count <= %lf = %d\n", p, count);
 }
 
 	

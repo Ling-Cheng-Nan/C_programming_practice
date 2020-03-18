@@ -1,11 +1,14 @@
 /* given fixed number elements of array */
-#define NODE_SIZE10   10 
-#define NODE_SIZE20   20 
-#define NODE_SIZE100 100
+#define NODE_SIZE10        10 
+#define NODE_SIZE20        20 
+#define NODE_SIZE100      100
+#define NODE_SIZE1000    1000
+#define NODE_SIZE10000  10000
+
 
 /* given fixed dimensions of array */
 #define DIMEN_SIZE05 5
-#define DIMEN_SIZE03 3
+#define DIMEN_SIZE03 5
 
 /* value range 1~500 */
 #define MAX 50

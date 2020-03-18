@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "constraint_set.h": "c"
+        "constraint_set.h": "c",
+        "function.h": "c"
     }
 }
