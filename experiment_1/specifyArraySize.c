@@ -5,9 +5,6 @@
 #include "function.h"
 
 
-void possiblity(double p);
-
-
 int main(void){
     srand(time(NULL)); //set random seed 
 	
@@ -43,22 +40,6 @@ int main(void){
     return 0;
 }
 
-void possiblity(double p){
-    srand(time(NULL)); //set random seed
-    
-    int count = 0;
-
-    if( p > 1 || p < 0) printf("Error!!\n");
-    else{
-            for(int i = 0 ; i < 1000 ; i++){
-                if((rand()%(100-1)+1 <= 100*p)) 
-                    count++;
-                    printf("count = %d\n",count);
-            }
-    }
-
-    printf("count <= %lf = %d\n", p, count);
-}
 
 	
 

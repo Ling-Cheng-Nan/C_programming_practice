@@ -4,7 +4,7 @@
 #include <time.h>
 #include <math.h>
 #include "constraint_set.h"
-void evaluateStatistic(int n[][DIMEN_SIZE03]);
+
 
 //function implementation
 void assignArrayRandomValue(int node[NODE_SIZE1000][DIMEN_SIZE03]){
