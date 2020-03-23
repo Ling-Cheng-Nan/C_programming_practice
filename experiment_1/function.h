@@ -84,7 +84,7 @@ void evaluateStatistic(int n[][DIMEN_SIZE03]){
     double standardDeviation[DIMEN_SIZE03]={0};
     int countM = 0;
     int countV = 0;
-    int nulledIndex = 0;
+    int nulledIndex = -1;
 
     for(int i = 0 ; i < DIMEN_SIZE03 ; i++){
         for(int j = 0 ; j < NODE_SIZE1000 ; j++){

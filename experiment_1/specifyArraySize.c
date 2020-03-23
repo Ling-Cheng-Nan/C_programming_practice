@@ -14,7 +14,7 @@ int main(void){
 	int missing_dimension=(rand()%(DIMENSION-MIN_D))+MIN_D; //must less than DIMENSION
 	int node[NODE_SIZE1000][DIMEN_SIZE03]={0};
     
-    printf("total number of node is : %d\n", NODE);
+    printf("total number of node is : %d \n", NODE);
     printf("dimension each node is  : %6d\n", DIMENSION);
     printf("missng dimension is     : %6d\n", missing_dimension);
 
@@ -34,7 +34,7 @@ int main(void){
     
     printf("---Statistics of post-nullize array:---\n");
     evaluateStatistic(clone);
-
+    
     //possiblity(0.36);
 
     return 0;
