@@ -3,9 +3,6 @@
 
 #include "node.h"
 
-// struct linkedlist{
-
-
     void initiNode(Node *pN){
         printf("\nEnter the new node name:\n");
         scanf("%s", pN->data.name);
@@ -29,5 +26,3 @@
             , pN->data.name, pN->data.attribute[0], pN->data.attribute[1],  pN->data.attribute[2],  pN->data.attribute[3],  pN->data.attribute[4]
             , pN->prev->data.name, pN->next->data.name);
     }
-
-// } LinkedList;
