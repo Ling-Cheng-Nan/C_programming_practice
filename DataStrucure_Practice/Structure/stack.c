@@ -5,7 +5,7 @@
 typedef struct node Node;
 
 typedef struct node{
-    Node* next;
+    Node* pre;
     int data;
 } Node;
 
@@ -83,20 +83,29 @@ void push(Stack* st, int val){
     Node n;
     Node* p = &n;
     p->data = val;
-    p->next = NULL;
+    p->pre = NULL;
 
     /*check the stack is full or not*/
     if(st->count == STACK_SIZE){
         printf("Stack is full.\n");
     }else {
+        printf("before insertion, the top node : %p\n",st->top);
+        
         /*insert data*/
         if(st->count == 0 && st->top == NULL){
             st->top = p; //first
         }else {
-            (st->top)->next = p;
-            st->top = (st->top)->next;
+            p->pre = st->top;
+            (st->top) = p;
         }
 
+        
+        printf("after insertion, the top node : %p\n",st->top);
+        
+        printf("the data just stored in : %d\n",(p)->data);
+
+        printf("the data just stored in : %d\n",(st->top)->data);
+        
         st->count ++;
         printf("Stack count increase.\n");
 
@@ -120,6 +129,6 @@ Node* pop(Stack* st){
 }
 
 void display(Stack* st){
-    printf("%d", (*(st->top)).data);
+    printf("%d", (st->top)->data);
 }
 
