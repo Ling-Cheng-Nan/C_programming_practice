@@ -67,7 +67,7 @@ int ask_for_options(){
 
     int opt;
 
-    printf("Stack Operations : \n1.PUSH\n2.POP\n3.DISPLAY\n4.EXIT\n");
+    printf("\nStack Operations : \n1.PUSH\n2.POP\n3.DISPLAY\n4.EXIT\n");
     printf("====================\n");
     scanf("%d", &opt);
 
@@ -120,8 +120,6 @@ Node* pop(Stack* st){
 }
 
 void display(Stack* st){
-    for(int i = st->count ; i >= 1 ; i--){
-        (i == 1)? printf("%d ", (*(st->top)).data):printf("%d, ", *(st->top));
-    }
+    printf("%d", (*(st->top)).data);
 }
 
