@@ -5,15 +5,15 @@
 typedef struct node Node;
 typedef struct stack Stack;
 
-typedef struct node{
-    Node* pre;
+struct node{
+    struct node* pre;
     int data;
-} Node;
+};
 
-typedef struct stack{ 
-    Node* top;
+struct stack{ 
+    struct node* top;
     int count;
-} Stack;
+};
 
 /*function prototype*/
 int ask_for_options();
