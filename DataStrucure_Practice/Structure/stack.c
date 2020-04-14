@@ -3,6 +3,7 @@
 #define STACK_SIZE 5
 
 typedef struct node Node;
+typedef struct stack Stack;
 
 typedef struct node{
     Node* pre;
@@ -80,10 +81,10 @@ void init_stack(Stack* st){
 }
 
 void push(Stack* st, int val){
-    Node n;
-    Node* p = &n;
-    p->data = val;
-    p->pre = NULL;
+    Node* temp = (Node *)malloc(sizeof(Node *));
+    temp->data = val;
+    temp->pre= NULL;
+    // st->top = temp;
 
     /*check the stack is full or not*/
     if(st->count == STACK_SIZE){
@@ -93,16 +94,16 @@ void push(Stack* st, int val){
         
         /*insert data*/
         if(st->count == 0 && st->top == NULL){
-            st->top = p; //first
+            st->top = temp; //first
         }else {
-            p->pre = st->top;
-            (st->top) = p;
+            temp->pre = st->top;
+            (st->top) = temp;
         }
 
-        
+        free(temp);
         printf("after insertion, the top node : %p\n",st->top);
         
-        printf("the data just stored in : %d\n",(p)->data);
+        printf("the data just stored in : %d\n",temp->data);
 
         printf("the data just stored in : %d\n",(st->top)->data);
         
@@ -116,6 +117,8 @@ void push(Stack* st, int val){
 
 Node* pop(Stack* st){
 
+    Node* p;
+
     /*check the stack is empty or not*/
     if(st->count == 0){
         printf("Stack is empty! Cannot pop out any element.\n");
@@ -126,9 +129,15 @@ Node* pop(Stack* st){
         st->count --;
         printf("Stack count decrease.\n");
     }
+
+    return p;
 }
 
 void display(Stack* st){
-    printf("%d", (st->top)->data);
+    Node* temp = st->top;
+    while(temp != NULL){
+        printf("%d", temp->data);
+        temp = temp->pre;
+    }
 }
 
