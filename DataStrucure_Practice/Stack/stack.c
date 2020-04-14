@@ -19,18 +19,18 @@ struct stack{
 int ask_for_options();
 void init_stack(Stack* );
 void push(Stack*, int);
-Node* pop(Stack* );
+int pop(Stack* );
 void display(Stack* );
 
 int main(){
     int option, value;
-    Node extracted_node;
+    int extract_value;
     Stack stack;
     Stack* ptr = &stack;
     
     init_stack(ptr);
 
-    while(1){
+    while(option != 4){
 
         switch (ask_for_options()){
             case 1:
@@ -38,10 +38,14 @@ int main(){
                 printf("Enter the value you want to push into the stack : \n");
                 scanf("%d", &value);
                 push(ptr, value);
+                printf("After insertion into top of the stack : \n");
+                display(ptr);
                 break;
             case 2:
                 /* pop */
-                pop(ptr);
+                extract_value = pop(ptr);
+                printf("pop out from top of the stack : %d \n", extract_value);
+                display(ptr);
                 break;
             case 3:
                 /* show elements in stack */
@@ -81,43 +85,26 @@ void init_stack(Stack* st){
 }
 
 void push(Stack* st, int val){
-    Node* temp = (Node *)malloc(sizeof(Node *));
-    temp->data = val;
-    temp->pre= NULL;
-    // st->top = temp;
 
     /*check the stack is full or not*/
     if(st->count == STACK_SIZE){
         printf("Stack is full.\n");
-    }else {
-        printf("before insertion, the top node : %p\n",st->top);
-        
-        /*insert data*/
-        if(st->count == 0 && st->top == NULL){
-            st->top = temp; //first
-        }else {
-            temp->pre = st->top;
-            (st->top) = temp;
-        }
-
-        free(temp);
-        printf("after insertion, the top node : %p\n",st->top);
-        
-        printf("the data just stored in : %d\n",temp->data);
-
-        printf("the data just stored in : %d\n",(st->top)->data);
-        
-        st->count ++;
-        printf("Stack count increase.\n");
-
+    }else{
+        Node* temp = malloc(sizeof(Node *));
+        temp->data = val;
+        temp->pre = st->top;
+        st->top = temp;
     }
+
+    st->count ++;
+    // printf("Stack count increase.\n");
 
 }
 
 
-Node* pop(Stack* st){
+int pop(Stack* st){
 
-    Node* p;
+    int extract_value = 0;
 
     /*check the stack is empty or not*/
     if(st->count == 0){
@@ -125,18 +112,31 @@ Node* pop(Stack* st){
     }
     else{
         /*extract element on top of the stack*/
-        
-        st->count --;
-        printf("Stack count decrease.\n");
+        Node* temp;
+        temp = st->top;
+        extract_value = temp->data;
+        st->top = (st->top)->pre;        
+        free(temp);
+
     }
 
-    return p;
+    st->count --;
+    printf("Stack count decrease.\n");
+    
+    
+    return extract_value;
 }
 
 void display(Stack* st){
+
     Node* temp = st->top;
     while(temp != NULL){
-        printf("%d", temp->data);
+        if(temp->pre == NULL){
+            printf("%d ", temp->data);
+        }else{
+            printf("%d -> ", temp->data);
+        }
+
         temp = temp->pre;
     }
 }
