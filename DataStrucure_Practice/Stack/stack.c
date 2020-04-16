@@ -91,13 +91,14 @@ void push(Stack* st, int val){
         printf("Stack is full.\n");
     }else{
         Node* temp = malloc(sizeof(Node *));
+        
         temp->data = val;
         temp->pre = st->top;
         st->top = temp;
-    }
 
-    st->count ++;
-    // printf("Stack count increase.\n");
+        st->count ++;
+        // printf("Stack count increase.\n");
+    }
 
 }
 
@@ -113,17 +114,17 @@ int pop(Stack* st){
     else{
         /*extract element on top of the stack*/
         Node* temp;
+        
         temp = st->top;
         extract_value = temp->data;
         st->top = (st->top)->pre;        
+        
         free(temp);
-
+        
+        st->count --;
+        printf("Stack count decrease.\n");
     }
 
-    st->count --;
-    printf("Stack count decrease.\n");
-    
-    
     return extract_value;
 }
 
