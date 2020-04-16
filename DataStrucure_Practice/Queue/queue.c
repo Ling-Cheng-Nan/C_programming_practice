@@ -21,9 +21,10 @@ struct queue{
 
 /* function prototype declaration */
 int ask_for_options();
-int isEmpty(Queue* qu);
-void init_queue(Queue* q);
-void enqueue(Queue* qu, int value);
+int isEmpty(Queue* );
+void init_queue(Queue* );
+void enqueue(Queue* , int);
+int dequeue(Queue* );
 
 /* main */
 int main(){
@@ -87,19 +88,37 @@ void init_queue(Queue* q){
 
 void enqueue(Queue* qu, int value){
     
-    Queue* front;
-    Queue* rear;
+    /*check the size of queue is full or not*/
+    if(qu->size == QUEUE_SIZE){
+        printf("the Queue is full, can not enqueue any element.\n");
+    }else{
+        /*insert an element into the queue*/  
+        Node* temp = malloc(sizeof(Node *));
+        
+        /*if queue is empty*/
+        if(qu->size == 0){
+            qu->front = temp; /*front and rear is indicate to same element*/
+        }
 
+        temp->data = value;
+        temp->next = NULL;
+        temp->prev = qu->rear; //move last element pointer to new node
+        
+        qu->size ++; //increase queue size
+    }
 
 
 }
 
-void dequeue(Queue* qu){
+int dequeue(Queue* qu){
+
+    int extract_value = 0;
     
-    Queue* front;
-    Queue* rear;
-
-
+    if(isEmpty(qu)){
+        printf("the Queue is empty, can not dequeue anymore.\n");
+    }else{
+        /**/
+    }
 
 }
 
